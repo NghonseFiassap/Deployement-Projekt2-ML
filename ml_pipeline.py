@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-training_data = pd.read_csv('storepurchasedata.csv')
+training_data = pd.read_csv('C:/Users/u022739/Desktop/Privat Data.Science Case Study/Machine Learning and Deep Learning model deployment/storepurchasedata.csv')
 
 training_data.describe()
 
@@ -16,9 +16,13 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-from sklearn.neighbors import KNeighborsClassifier
+
+#from sklearn.neighbors import KNeighborsClassifier
 # minkowski is for ecledian distance
-classifier = KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2)
+#classifier = KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2)
+
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier(max_depth=5)
 
 # Model training
 classifier.fit(X_train, y_train)
